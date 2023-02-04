@@ -1,31 +1,81 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  <h1>hey</h1>
-  </nav>
+     <div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+  
   <router-view/>
+  </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+body{
+    margin: auto;
+    font-family: 'Segoe Print', Tahoma, Geneva, Verdana, sans-serif, Helvetica, Arial, sans-serif;
+    overflow: auto;
+    background: linear-gradient(315deg, rgba(86,11,173) 3%, rgba(60,132,206,1) 38%, rgba(67,97,238) 68%, rgba(239,71,111) 98%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
 }
 
-nav {
-  padding: 30px;
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 12em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+}
+
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+
+    25% {
+        transform: translateX(-25%);
+    }
+
+    50% {
+        transform: translateX(-50%);
+    }
+
+    75% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(1);
+    }
 }
 </style>
